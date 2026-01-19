@@ -1,0 +1,21 @@
+rednet.close("bottom")
+rednet.open("bottom")
+local silo = peripheral.wrap("back")
+local capacity = silo.getMaxEnergy()
+local monitor = peripheral.wrap("top")
+
+while true do
+
+local amount = silo.getEnergy()
+local total = math.floor((amount/capacity)*100)
+
+monitor.clear()
+monitor.setCursorPos(1, 1)
+monitor.write("Silo 2:")
+monitor.setCursorPos(1, 2)
+monitor.write("FE:"..total.. "/100")
+rednet.open("bottom")
+rednet.send(35, total, data2)
+sleep(3)
+print("Sent!")
+end    
