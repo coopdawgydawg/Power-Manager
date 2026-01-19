@@ -1,0 +1,52 @@
+rednet.close("bottom")
+rednet.open("bottom")
+local monitor = peripheral.wrap("top")
+monitor.clear()
+while true do
+
+    local id, msg, data1 = rednet.receive()
+    if id == 36
+    then print("Signal1")
+    monitor.setCursorPos(1, 3)
+    monitor.write("Main Silo 1:")
+    monitor.setCursorPos(1, 4)
+    monitor.clearLine()
+    monitor.write("Current Charge: " ..msg.. "%")
+    
+    local id, msg, data2 = rednet.receive()
+    if id == 37
+    then print("Signal2")
+    monitor.setCursorPos(1, 6)
+    monitor.write("Main Silo 2:")
+    monitor.setCursorPos(1, 7)
+    monitor.write("Current Charge: " ..msg.. "%")
+    
+    local id, msg, data3 = rednet.receive()
+    if id == 39
+    then print("Signal3")
+    monitor.setCursorPos(1, 9)
+    monitor.write("Main Silo 3:")
+    monitor.setCursorPos(1, 10)
+    monitor.write("Current Charge: " ..msg.. "%")
+    
+    local id, msg, dataB1 = rednet.receive()
+    if id == 42
+    then print("SignalBU1")
+    monitor.setCursorPos(1, 14)
+    monitor.write("Backup Silo 1:")
+    monitor.setCursorPos(1, 15)
+    monitor.write("Current Charge: " ..msg.. "%")
+    
+    local id, msg, dataB2 = rednet.receive()
+    if id == 43
+    then print("SignalBU2")
+    monitor.setCursorPos(1, 17)
+    monitor.write("Backup Silo 2:")
+    monitor.setCursorPos(1, 18)
+    monitor.write("Current Charge: " ..msg.. "%")
+end              
+    end
+        end
+            end
+                end
+                    end  
